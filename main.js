@@ -16,7 +16,6 @@ addBut.addEventListener('click', () => {
 
         butt.addEventListener('click', () => {
             ul.removeChild(div);
-
         })
     }
 })
