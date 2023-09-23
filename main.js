@@ -4,7 +4,7 @@ const ul = document.querySelector('.tasks');
 let start = JSON.parse(localStorage.getItem('base')) || [];
 let base = [];
 start.forEach(item => {
-    createItem(item)
+    createItem(item);
 })
 
 function createItem(data) {
@@ -17,33 +17,31 @@ function createItem(data) {
     let butts = document.createElement('div');
     butts.classList.add('butts');
 
-    let butt1 = document.createElement('button');
-    butt1.classList.add('del');
-    butt1.innerHTML = 'DELETE';
+    let butDelete = document.createElement('button');
+    butDelete.classList.add('del');
+    butDelete.innerHTML = 'DELETE';
 
-    let butt2 = document.createElement('button');
-    butt2.classList.add('edit');
-    butt2.innerHTML = 'EDIT';
+    let butEdit = document.createElement('button');
+    butEdit.classList.add('edit');
+    butEdit.innerHTML = 'EDIT';
 
-    butts.append(butt2, butt1);
+    butts.append(butEdit, butDelete);
     div.append(p, butts);
     ul.appendChild(div);
 
-    butt1.addEventListener('click', () => {
+    butDelete.addEventListener('click', () => {
         ul.removeChild(div);
-        let edit1 = JSON.parse(localStorage.getItem('base'));
-        edit1.splice(edit1.indexOf(data), 1)
-        localStorage.setItem('base', JSON.stringify(edit1))
+        start = JSON.parse(localStorage.getItem('base'));
+        start.splice(start.indexOf(data), 1);
+        localStorage.setItem('base', JSON.stringify(start));
     })
 
-    butt2.addEventListener('click', () => {
+    butEdit.addEventListener('click', () => {
         let newName = prompt('Введіть нові дані')
-        butts.append(butt2, butt1)
-        div.append(butts);
-        let edit2 = JSON.parse(localStorage.getItem('base'));
-        edit2[edit2.indexOf(data)] = newName
-        p.innerHTML = newName
-        localStorage.setItem('base', JSON.stringify(edit2))
+        start = JSON.parse(localStorage.getItem('base'));
+        start[start.indexOf(data)] = newName;
+        p.innerHTML = newName;
+        localStorage.setItem('base', JSON.stringify(start));
     })
 
     base.push(data);
@@ -52,11 +50,11 @@ function createItem(data) {
 addBut.addEventListener('click', () => {
 
     if (input.value) {
-        createItem(input.value)
+        createItem(input.value);
         input.value = '';
     }
 
-    localStorage.setItem('base', JSON.stringify(base))
+    localStorage.setItem('base', JSON.stringify(base));
 })
 
 
