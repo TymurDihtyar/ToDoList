@@ -32,12 +32,7 @@ function createItem(data) {
     butt1.addEventListener('click', () => {
         ul.removeChild(div);
         let edit1 = JSON.parse(localStorage.getItem('base'));
-        let index = edit1.findIndex(item => {
-            if (item === data) {
-                return true;
-            }
-        })
-        edit1.splice(index, 1)
+        edit1.splice(edit1.indexOf(data), 1)
         localStorage.setItem('base', JSON.stringify(edit1))
     })
 
@@ -46,13 +41,8 @@ function createItem(data) {
         butts.append(butt2, butt1)
         div.append(butts);
         let edit2 = JSON.parse(localStorage.getItem('base'));
-        let index = edit2.findIndex(item => {
-            if (item === data) {
-                return true;
-            }
-        })
-        edit2[index] = newName
-        data = newName
+        edit2[edit2.indexOf(data)] = newName
+        p.innerHTML = newName
         localStorage.setItem('base', JSON.stringify(edit2))
     })
 
