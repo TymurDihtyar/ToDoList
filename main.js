@@ -43,7 +43,6 @@ function createItem(data) {
         p.innerHTML = newName;
         localStorage.setItem('base', JSON.stringify(start));
     })
-
     base.push(data);
 }
 
