@@ -69,9 +69,15 @@ button {
     padding: 0;
     margin-bottom: 10px;
 }
+.butts {
+    width: 210px;
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+}
 
-.currentButt {
-    width: 15%;
+.del, .edit {
+    width: 100px;
     height: 100%;
     background-color: #d0d9de;
     border-radius: 10px;
