@@ -3,9 +3,7 @@ const addBut = document.querySelector('.add');
 const ul = document.querySelector('.tasks');
 let start = JSON.parse(localStorage.getItem('base')) || [];
 let base = [];
-start.forEach(item => {
-    createItem(item);
-})
+start.forEach(item => createItem(item));
 
 function createItem(data) {
     let div = document.createElement('div');
