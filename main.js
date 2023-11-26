@@ -2,7 +2,7 @@ const input = document.querySelector('.text');
 const addBut = document.querySelector('.add');
 const ul = document.querySelector('.tasks');
 let start = JSON.parse(localStorage.getItem('base')) || [];
-let base = [];
+
 start.forEach(item => createItem(item));
 
 function createItem(data) {
@@ -41,17 +41,17 @@ function createItem(data) {
         p.innerHTML = newName;
         localStorage.setItem('base', JSON.stringify(start));
     })
-    base.push(data);
 }
 
 addBut.addEventListener('click', () => {
 
     if (input.value) {
         createItem(input.value);
+        start.push(input.value);
         input.value = '';
     }
 
-    localStorage.setItem('base', JSON.stringify(base));
+    localStorage.setItem('base', JSON.stringify(start));
 })
 
 
